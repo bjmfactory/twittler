@@ -14,3 +14,9 @@
   width: 500px;
   margin: 100px 0px 0px 400px;
 }
+
+.tweet {
+  padding: 30px;
+  border: 1px solid black;
+  margin-bottom: 10px;
+}
