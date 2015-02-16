@@ -9,16 +9,18 @@
   <body>
     <div id="menu">
       <p>Twittler</p>
+      <button id="refresh">Refresh</button>
     </div>
     <div id="content">
+      <h1>Home</h1>
+      <p id="tweetsNumber"></p>
 
     <script>
 
       $(document).ready(function(){
         var $content = $('#content');
-        $content.html('');
-
         var index = streams.home.length - 1;
+
         while(index >= 0){
           var tweet = streams.home[index];
           var $tweet = $('<div class="tweet"></div>');
@@ -26,6 +28,10 @@
           $tweet.appendTo($content);
           index -= 1;
         }
+
+        $("button#refresh").click(function(){
+          $("#tweetsNumber").text(streams.home.length);
+        })
       });
 
     </script>
