@@ -1,2 +1,16 @@
 /* Twittler Styles */
 
+#menu {
+  position: absolute;
+  left: 100px;
+  top: 100px;
+  width: 200px;
+  height: 100%;
+  border-right: 1px solid #EBEBEB;
+  text-align: center;
+}
+
+#content {
+  width: 500px;
+  margin: 100px 0px 0px 400px;
+}
