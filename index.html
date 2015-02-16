@@ -13,17 +13,17 @@
     </div>
     <div id="content">
       <h1>Home</h1>
-      <p id="tweetsNumber"></p>
+      <p># of Tweets: <span id="tweetsNumber"></span></p>
 
     <script>
 
       $(document).ready(function(){
         var $content = $('#content');
-        var index = streams.home.length - 1;
+        var $tweet = $('<div class="tweet"></div>');
 
         while(index >= 0){
+          var index = streams.home.length - 1;
           var tweet = streams.home[index];
-          var $tweet = $('<div class="tweet"></div>');
           $tweet.html('<p class="user">@' + tweet.user + ' ' + '<span class="timestamp">' + tweet.created_at + '</span></p>' + '<p class="message">' +tweet.message + '</p>');
           $tweet.appendTo($content);
           index -= 1;
@@ -33,6 +33,23 @@
           $("#tweetsNumber").text(streams.home.length);
         })
       });
+
+      /*
+      Idea for linking to other profiles.
+
+      var index = streams.CLICKED_USERNAME.length - 1;
+
+      while(index >= 0) {
+        var tweet = streams.CLICKED_USERNAME[index];
+        $tweet.html('<p class="user">@' + tweet.user + ' ' + '<span class="timestamp">' + tweet.created_at + '</span></p>' + '<p class="message">' +tweet.message + '</p>');
+        $tweet.appendTo($content);
+        index -= 1;
+      }
+
+      Also update the H1 $('#content') to CLICKED_USERNAME
+
+      You can the text of the paragraph clicked, but you'll have to strip out the "@"
+      */
 
     </script>
 
