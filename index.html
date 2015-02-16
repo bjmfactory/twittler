@@ -22,7 +22,7 @@
         while(index >= 0){
           var tweet = streams.home[index];
           var $tweet = $('<div class="tweet"></div>');
-          $tweet.html('<p class="user">@' + tweet.user + '</p>' + '<p class="message">' +tweet.message + '</p>' + '<p class="timestamp">' + tweet.created_at + '</p>');
+          $tweet.html('<p class="user">@' + tweet.user + ' ' + '<span class="timestamp">' + tweet.created_at + '</span></p>' + '<p class="message">' +tweet.message + '</p>');
           $tweet.appendTo($content);
           index -= 1;
         }

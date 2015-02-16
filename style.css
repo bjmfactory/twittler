@@ -21,16 +21,18 @@
   margin-bottom: 10px;
 }
 
-.tweet p {
-  margin: 10px 0px 0px 0px;
-}
-
 .tweet .user {
   font-weight: bold;
+  margin: 0px 0px 10px 0px;
 }
 
-.tweet .timestamp {
+span.timestamp {
   font-size: 10px;
   color: #8899a6;
   text-align: right;
+  font-weight: normal;
+}
+
+.tweet .message {
+  margin: 0px;
 }
