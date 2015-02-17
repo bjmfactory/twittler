@@ -57,6 +57,7 @@
           refreshIndex(stream);
           showTweets(index);
           showTweetCount(stream);
+          $("#content > h1").text("@" + user);
         });
 
         $("#home").click(function(){
@@ -64,6 +65,7 @@
           refreshIndex(stream);
           showTweets(index);
           showTweetCount(stream);
+          $("#content > h1").text("Home");
         });
       });
 

@@ -34,6 +34,7 @@
 
 .tweet .user:hover {
   text-decoration: underline;
+  color: blue;
 }
 
 .tweet .timestamp {
