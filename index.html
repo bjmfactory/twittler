@@ -10,6 +10,7 @@
     <div id="menu">
       <p>Twittler</p>
       <button id="refresh">Refresh</button>
+      <button id="mracus">mracus</button>
     </div>
     <div id="content">
       <h1>Home</h1>
@@ -38,16 +39,22 @@
           $("#tweetCount").text(stream.length);
         }
 
+        var refreshIndex = function(stream){
+          index = stream.length - 1;
+        }
+
         showTweets(index);
         showTweetCount(stream);
 
         $("button#refresh").click(function(){
-          var stream = streams.home;
-          var index = streams.home.length - 1;
+          refreshIndex(stream);
           showTweets(index);
           showTweetCount(stream);
 
         });
+
+        $("button#mracus").click(function(){
+        })
 
 
       });
