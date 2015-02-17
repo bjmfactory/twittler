@@ -14,24 +14,40 @@
     <div id="content">
       <h1>Home</h1>
       <p># of Tweets: <span id="tweetsNumber"></span></p>
+      <div id="tweets">
 
     <script>
 
       $(document).ready(function(){
-        var $content = $('#content');
-        var $tweet = $('<div class="tweet"></div>');
+        var index = streams.home.length - 1;
+        var $tweets = $('#tweets');
+        $tweets.html('')
+
 
         while(index >= 0){
-          var index = streams.home.length - 1;
           var tweet = streams.home[index];
-          $tweet.html('<p class="user">@' + tweet.user + ' ' + '<span class="timestamp">' + tweet.created_at + '</span></p>' + '<p class="message">' +tweet.message + '</p>');
-          $tweet.appendTo($content);
+          var $tweet = $('<div class="tweet"></div>');
+          $tweet.html('<p class="user">@' + tweet.user + ' ' + '<span class="timestamp">' + tweet.created_at + '</span></p>' + '<p class="message">' + tweet.message + '</p>');
+          $tweet.appendTo($tweets);
           index -= 1;
         }
 
         $("button#refresh").click(function(){
           $("#tweetsNumber").text(streams.home.length);
-        })
+          var index = streams.home.length - 1
+          var $tweets = $('#tweets');
+          $tweets.html('');
+
+          while(index >= 0){
+            var tweet = streams.home[index];
+            var $tweet = $('<div class="tweet"></div>');
+            $tweet.html('<p class="user">@' + tweet.user + ' ' + '<span class="timestamp">' + tweet.created_at + '</span></p>' + '<p class="message">' + tweet.message + '</p>');
+            $tweet.appendTo($tweets);
+            index -= 1;
+          }
+        });
+
+
       });
 
       /*
@@ -52,7 +68,7 @@
       */
 
     </script>
-
+      </div>
     </div>
   </body>
 </html>
