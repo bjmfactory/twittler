@@ -8,8 +8,8 @@
   </head>
   <body>
     <div id="menu">
-      <p>Twittler</p>
-      <button id="refresh">Refresh</button>
+      <p id="logo">Twittler</p>
+      <p id="home">Home</p>
     </div>
     <div id="content">
       <h1>Home</h1>
@@ -45,15 +45,22 @@
         showTweets(index);
         showTweetCount(stream);
 
-        $("button#refresh").click(function(){
+        setInterval(function(){
+          refreshIndex(stream);
+          showTweets(index);
+          showTweetCount(stream);
+        }, 5000);
+
+        $tweets.on("click", "p.user", function(){
+          var user = ($(this).text()).slice(1);
+          stream = streams.users[user];
           refreshIndex(stream);
           showTweets(index);
           showTweetCount(stream);
         });
 
-        $tweets.on("click", "p.user", function(){
-          var user = ($(this).text()).slice(1);
-          stream = streams.users[user];
+        $("#home").click(function(){
+          stream = streams.home;
           refreshIndex(stream);
           showTweets(index);
           showTweetCount(stream);
