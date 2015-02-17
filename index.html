@@ -55,9 +55,9 @@
           showTweetCount(stream);
         });
 
-        $("p.user").click(function(){
+        $tweets.on("click", "p.user", function(){
           alert($(this).text());
-        })
+        });
       });
 
       /*
