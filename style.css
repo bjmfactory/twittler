@@ -19,6 +19,7 @@
   padding: 30px;
   border: 1px solid black;
   margin-bottom: 10px;
+  position: relative;
 }
 
 .tweet .user {
@@ -26,12 +27,16 @@
   margin: 0px 0px 10px 0px;
 }
 
-span.timestamp {
+.tweet .timestamp {
+  margin: 0px;
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
   font-size: 10px;
   color: #8899a6;
   font-weight: normal;
 }
 
-.tweet .message {
-  margin: 0px;
+.tweet p {
+  margin: 0px 0px 10px 0px;
 }

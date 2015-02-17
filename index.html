@@ -10,7 +10,6 @@
     <div id="menu">
       <p>Twittler</p>
       <button id="refresh">Refresh</button>
-      <button id="mracus">mracus</button>
     </div>
     <div id="content">
       <h1>Home</h1>
@@ -29,7 +28,7 @@
           while(index >= 0){
             var tweet = stream[index];
             var $tweet = $('<div class="tweet"></div>');
-            $tweet.html('<p class="user">@' + tweet.user + ' ' + '<span class="timestamp">' + tweet.created_at + '</span></p>' + '<p class="message">' + tweet.message + '</p>');
+            $tweet.html('<p class="user">@' + tweet.user + '</p>' + '<p class="message">' + tweet.message + '</p>'  + '<p class="timestamp">' + tweet.created_at + '</p>' );
             $tweet.appendTo($tweets);
           index -= 1;
           }
@@ -43,6 +42,10 @@
           index = stream.length - 1;
         }
 
+        var setStream = function(newStream){
+          stream = newStream;
+        }
+
         showTweets(index);
         showTweetCount(stream);
 
@@ -50,13 +53,11 @@
           refreshIndex(stream);
           showTweets(index);
           showTweetCount(stream);
-
         });
 
-        $("button#mracus").click(function(){
+        $("p.user").click(function(){
+          alert($(this).text());
         })
-
-
       });
 
       /*
