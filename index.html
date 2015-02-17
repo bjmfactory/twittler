@@ -42,10 +42,6 @@
           index = stream.length - 1;
         }
 
-        var setStream = function(newStream){
-          stream = newStream;
-        }
-
         showTweets(index);
         showTweetCount(stream);
 
@@ -56,7 +52,11 @@
         });
 
         $tweets.on("click", "p.user", function(){
-          alert($(this).text());
+          var user = ($(this).text()).slice(1);
+          stream = streams.users[user];
+          refreshIndex(stream);
+          showTweets(index);
+          showTweetCount(stream);
         });
       });
 

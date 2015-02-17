@@ -27,6 +27,10 @@
   margin: 0px 0px 10px 0px;
 }
 
+.tweet .user:hover {
+  text-decoration: underline;
+}
+
 .tweet .timestamp {
   margin: 0px;
   position: absolute;
