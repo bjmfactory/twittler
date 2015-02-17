@@ -13,7 +13,7 @@
     </div>
     <div id="content">
       <h1>Home</h1>
-      <p># of Tweets: <span id="tweetsNumber"></span></p>
+      <p># of Tweets: <span id="tweetCount"></span></p>
       <div id="tweets">
 
     <script>
@@ -22,9 +22,9 @@
         var stream = streams.home;
         var index = stream.length - 1;
         var $tweets = $('#tweets');
-        $tweets.html('');
 
         var showTweets = function(index) {
+          $tweets.html('');
           while(index >= 0){
             var tweet = stream[index];
             var $tweet = $('<div class="tweet"></div>');
@@ -34,16 +34,19 @@
           }
         };
 
+        var showTweetCount = function(stream){
+          $("#tweetCount").text(stream.length);
+        }
+
         showTweets(index);
+        showTweetCount(stream);
 
         $("button#refresh").click(function(){
           var stream = streams.home;
-          $("#tweetsNumber").text(streams.home.length);
-          var index = streams.home.length - 1
-          var $tweets = $('#tweets');
-          $tweets.html('');
+          var index = streams.home.length - 1;
+          showTweets(index);
+          showTweetCount(stream);
 
-          showTweets(index)
         });
 
 
